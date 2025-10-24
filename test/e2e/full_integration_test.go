@@ -1,3 +1,6 @@
+//go:build !rhobs_integration
+// +build !rhobs_integration
+
 package e2e
 
 import (
