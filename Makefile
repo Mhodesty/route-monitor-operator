@@ -77,6 +77,10 @@ vet:
 test-integration:
 	hack/test-integration.sh
 
+# Run the full e2e integration test (RMO → API → Agent)
+full-e2e-test:
+	cd test/e2e && go test -v -run TestFullStackIntegration -timeout 5m
+
 # from https://sdk.operatorframework.io/docs/upgrading-sdk-version/v1.6.1/#gov2-gov3-ansiblev1-helmv1-add-opm-and-catalog-build-makefile-targets
 OS = $(shell go env GOOS)
 ARCH = $(shell go env GOARCH)

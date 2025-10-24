@@ -132,7 +132,7 @@ func (r *multiWindowMultiBurnAlertRule) render(url string, percent string, names
 		Annotations: map[string]string{
 			"message": fmt.Sprintf("High error budget burn for %s (current value: {{ $value }})", url),
 		},
-		For: monitoringv1.Duration(r.duration),
+		For: func() *monitoringv1.Duration { d := monitoringv1.Duration(r.duration); return &d }(),
 	}
 }
 

@@ -149,13 +149,13 @@ func (u *ServiceMonitor) TemplateForServiceMonitorResource(routeURL, blackBoxExp
 					Path:          "/probe",
 					Scheme:        "http",
 					Params:        params,
-					MetricRelabelConfigs: []*monitoringv1.RelabelConfig{
+					MetricRelabelConfigs: []monitoringv1.RelabelConfig{
 						{
-							Replacement: routeURL,
+							Replacement: &routeURL,
 							TargetLabel: UrlLabelName,
 						},
 						{
-							Replacement: clusterID,
+							Replacement: &clusterID,
 							TargetLabel: "_id",
 						},
 					},
@@ -191,13 +191,13 @@ func (u *ServiceMonitor) HyperShiftTemplateForServiceMonitorResource(routeURL, b
 					Path:          "/probe",
 					Scheme:        "http",
 					Params:        params,
-					MetricRelabelConfigs: []*rhobsv1.RelabelConfig{
+					MetricRelabelConfigs: []rhobsv1.RelabelConfig{
 						{
-							Replacement: routeURL,
+							Replacement: &routeURL,
 							TargetLabel: UrlLabelName,
 						},
 						{
-							Replacement: clusterID,
+							Replacement: &clusterID,
 							TargetLabel: "_id",
 						},
 					},
